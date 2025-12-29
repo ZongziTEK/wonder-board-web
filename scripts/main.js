@@ -149,9 +149,9 @@ function addPointToPath(point) {
     currentPoints.push([point.x, point.y]);
 
     const strokePoints = getStroke(currentPoints, {
-        size: 6,
-        thinning: 0.5,
-        smoothing: 0.8,
+        size: 4,
+        thinning: 0.6,
+        smoothing: 0.5,
         streamline: 0.5,
     });
 

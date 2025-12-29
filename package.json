@@ -1,10 +1,13 @@
 {
   "name": "wonder-board-web",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Cute Canvas Board",
+  "main": "./electron/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +16,9 @@
   "dependencies": {
     "@fluentui/web-components": "^2.6.1",
     "perfect-freehand": "^1.2.2"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.10.2",
+    "electron": "^39.2.7"
   }
 }

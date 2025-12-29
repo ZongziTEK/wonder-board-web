@@ -1,5 +1,5 @@
 {
-  "name": "wonder-board-web",
+  "name": "米奇妙妙板 Wonder Board",
   "version": "1.0.0",
   "description": "Cute Canvas Board",
   "main": "./electron/main.js",

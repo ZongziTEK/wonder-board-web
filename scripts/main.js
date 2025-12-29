@@ -5,11 +5,13 @@ const InkCanvas = document.getElementById("inkCanvas");
 const ButtonDrag = document.getElementById("buttonDrag");
 const ButtonDraw = document.getElementById("buttonDraw");
 const ButtonErase = document.getElementById("buttonErase");
+const ButtonClear = document.getElementById("buttonClear");
 
 // region Toolbar
 ButtonDrag.addEventListener('click', () => switchMode(EditingModes.Drag));
 ButtonDraw.addEventListener('click', () => switchMode(EditingModes.Draw));
 ButtonErase.addEventListener('click', () => switchMode(EditingModes.Erase));
+ButtonClear.addEventListener('click', () => clearCanvasWithConfirm());
 // endregion
 
 // region Editing Mode
@@ -58,12 +60,6 @@ InkCanvas.addEventListener('pointerdown', (e) => {
         if (e.buttons === 32) {
             isPenAss = true;
             switchMode(EditingModes.Erase);
-        }
-        else {
-            if (isPenAss) {
-                isPenAss = false;
-                switchMode(lastMode);
-            }
         }
     }
 
@@ -173,7 +169,7 @@ function addPointToPath(point) {
 // region eraser
 let erasePoints = [];
 let lastErasePoint = null;
-let eraseCtx = null; 
+let eraseCtx = null;
 
 function getEraseContext() {
     if (!eraseCtx) {
@@ -221,7 +217,7 @@ function addPointToErasePath(point) {
 function eraseAtPoint(point) {
     const allPaths = InkCanvas.querySelectorAll('path');
     const eraseRadius = 5;
-    const ctx = getEraseContext(); 
+    const ctx = getEraseContext();
 
     allPaths.forEach(path => {
         const pathData = path.getAttribute('d');
@@ -245,7 +241,24 @@ function eraseAtPoint(point) {
 
 function finalizeErase() {
     erasePoints = [];
-    lastErasePoint = null;
+    lastErasePoint = null;    
+
+    if (isPenAss) {
+        isPenAss = false;
+        switchMode(lastMode);
+    }
+}
+// endregion
+// region Clear
+function clearCanvas() {
+    const allPaths = InkCanvas.querySelectorAll('path');
+    allPaths.forEach(path => path.remove());
+}
+
+function clearCanvasWithConfirm() {
+    if (confirm("真的要清除画板吗")) {
+        clearCanvas();
+    }
 }
 // endregion
 // endregion

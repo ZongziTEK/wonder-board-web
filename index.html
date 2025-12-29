@@ -33,6 +33,13 @@
             padding: 4px;
         }
 
+        .toolbar-separator {
+            width: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 4px 2px;
+            align-self: stretch;
+        }
+
         .toolbar fluent-button {
             display: inline-flex;
             justify-content: center;
@@ -61,7 +68,7 @@
             right: 24px;
         }
 
-        #toolbarWindow{
+        #toolbarWindow {
             left: 24px;
         }
     </style>
@@ -94,6 +101,15 @@
                         d="M11.197 2.44a1.5 1.5 0 0 1 2.121 0l4.243 4.242a1.5 1.5 0 0 1 0 2.121L9.364 17H14.5a.5.5 0 1 1 0 1H7.82a1.5 1.5 0 0 1-1.14-.437L2.437 13.32a1.5 1.5 0 0 1 0-2.121zm1.414.706a.5.5 0 0 0-.707 0L5.538 9.512l4.95 4.95l6.366-6.366a.5.5 0 0 0 0-.707zM9.781 15.17l-4.95-4.95l-1.687 1.687a.5.5 0 0 0 0 .707l4.243 4.243a.5.5 0 0 0 .707 0z" />
                 </svg>
                 橡皮
+            </fluent-button>
+
+            <div class="toolbar-separator"></div>
+            
+            <fluent-button id="buttonClear">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <path fill="currentColor"
+                        d="M8.5 4h3a1.5 1.5 0 0 0-3 0m-1 0a2.5 2.5 0 0 1 5 0h5a.5.5 0 0 1 0 1h-1.054l-1.194 10.344A3 3 0 0 1 12.272 18H7.728a3 3 0 0 1-2.98-2.656L3.554 5H2.5a.5.5 0 0 1 0-1zM5.741 15.23A2 2 0 0 0 7.728 17h4.544a2 2 0 0 0 1.987-1.77L15.439 5H4.561zM8.5 7.5A.5.5 0 0 1 9 8v6a.5.5 0 0 1-1 0V8a.5.5 0 0 1 .5-.5M12 8a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                </svg>
             </fluent-button>
         </div>
     </fluent-card>

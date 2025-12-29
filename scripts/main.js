@@ -6,12 +6,22 @@ const ButtonDrag = document.getElementById("buttonDrag");
 const ButtonDraw = document.getElementById("buttonDraw");
 const ButtonErase = document.getElementById("buttonErase");
 const ButtonClear = document.getElementById("buttonClear");
+const ButtonClose = document.getElementById("buttonClose");
+
+// region Window
+function closeWithConfirm() {
+    if (confirm("真的要关闭画板吗")) {
+        window.close();
+    }
+}
+// endregion
 
 // region Toolbar
 ButtonDrag.addEventListener('click', () => switchMode(EditingModes.Drag));
 ButtonDraw.addEventListener('click', () => switchMode(EditingModes.Draw));
 ButtonErase.addEventListener('click', () => switchMode(EditingModes.Erase));
 ButtonClear.addEventListener('click', () => clearCanvasWithConfirm());
+ButtonClose.addEventListener('click', () => closeWithConfirm());
 // endregion
 
 // region Editing Mode
@@ -241,7 +251,7 @@ function eraseAtPoint(point) {
 
 function finalizeErase() {
     erasePoints = [];
-    lastErasePoint = null;    
+    lastErasePoint = null;
 
     if (isPenAss) {
         isPenAss = false;
